@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "sass:math";
+
 // ----- Basic Functions ----- //
 ///
 // @desc Finds and returns a color map if exists
@@ -42,6 +45,30 @@
         @warn "Unknown `#{$color}` name.";
         @return null;
     }
+}
+
+
+///
+// @desc Serializes a mixed Sass color as a legacy, integer-channel HEX color.
+//
+// @param {color} $value -- The mixed color
+//
+// @return {string} -- Uppercase six-digit HEX color
+///
+@function polaris-mixed-hex($value) {
+    $digits: "0123456789ABCDEF";
+    $result: "#";
+
+    @each $channel in ("red", "green", "blue") {
+        $number: math.round(color.channel($value, $channel, $space: rgb));
+        $high: math.floor(math.div($number, 16));
+        $low: $number - $high * 16;
+
+        $result: $result + str-slice($digits, $high + 1, $high + 1)
+            + str-slice($digits, $low + 1, $low + 1);
+    }
+
+    @return unquote($result);
 }
 
 
@@ -127,10 +154,10 @@
     }
     @else if ($intensity < 100) {
         @if nth($list, 1) == 'app' or nth($list, 1) == 'gray' {
-            @return var(--#{nth($list, 1)}-#{$intensity}, to-upper(mix($color-100, $white, $intensity * 1%)));
+            @return var(--#{nth($list, 1)}-#{$intensity}, polaris-mixed-hex(mix($color-100, $white, $intensity * 1%)));
         }
         @else {
-            @return to-upper(mix($color-100, $white, $intensity * 1%));
+            @return polaris-mixed-hex(mix($color-100, $white, $intensity * 1%));
         }
     }
     @else if ($intensity == 100) {
@@ -143,10 +170,10 @@
     }
     @else if ($intensity > 100 and $intensity < 500) {
         @if nth($list, 1) == 'app' or nth($list, 1) == 'gray' {
-            @return var(--#{nth($list, 1)}-#{$intensity}, to-upper(mix($color-100, $color-500, (100 - math.div($intensity - 100, 4)) * 1%)));
+            @return var(--#{nth($list, 1)}-#{$intensity}, polaris-mixed-hex(mix($color-100, $color-500, (100 - math.div($intensity - 100, 4)) * 1%)));
         }
         @else {
-            @return to-upper(mix($color-100, $color-500, (100 - math.div($intensity - 100, 4)) * 1%));
+            @return polaris-mixed-hex(mix($color-100, $color-500, (100 - math.div($intensity - 100, 4)) * 1%));
         }
     }
     @else if ($intensity == 500) {
@@ -159,10 +186,10 @@
     }
     @else if ($intensity > 500 and $intensity < 900) {
         @if nth($list, 1) == 'app' or nth($list, 1) == 'gray' {
-            @return var(--#{nth($list, 1)}-#{$intensity}, to-upper(mix($color-900, $color-500, (math.div($intensity - 100, 4) - 100) * 1%)));
+            @return var(--#{nth($list, 1)}-#{$intensity}, polaris-mixed-hex(mix($color-900, $color-500, (math.div($intensity - 100, 4) - 100) * 1%)));
         }
         @else {
-            @return to-upper(mix($color-900, $color-500, (math.div($intensity - 100, 4) - 100) * 1%));
+            @return polaris-mixed-hex(mix($color-900, $color-500, (math.div($intensity - 100, 4) - 100) * 1%));
         }
     }
     @else if ($intensity == 900) {
@@ -175,10 +202,10 @@
     }
     @else if ($intensity > 900 and $intensity < 1000) {
         @if nth($list, 1) == 'app' or nth($list, 1) == 'gray' {
-            @return var(--#{nth($list, 1)}-#{$intensity}, to-upper(mix($color-900, $black, (1000 - $intensity) * 1%)));
+            @return var(--#{nth($list, 1)}-#{$intensity}, polaris-mixed-hex(mix($color-900, $black, (1000 - $intensity) * 1%)));
         }
         @else {
-            @return to-upper(mix($color-900, $black, (1000 - $intensity) * 1%));
+            @return polaris-mixed-hex(mix($color-900, $black, (1000 - $intensity) * 1%));
         }
     }
     @else if ($intensity == 1000) {
