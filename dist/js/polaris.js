@@ -2784,7 +2784,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Core */ "./src/ts/modules/Core.ts");
 /**
  * Polaris Framework v1.0.6
- * MIT License github.com/heminsatya/polaris-core | © 2026 polarisui.com
+ * MIT License github.com/sigmascript/polaris-core | © 2026 polarisui.com
 **/
 /**
  * Import the Core Class
