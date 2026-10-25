@@ -1,4 +1,4 @@
-# Polaris Core (v1.0.5)
+# Polaris Core (v1.0.6)
 
 Polaris is a front-end web framework for creating responsive UI components, with a focus on simplicity.
 
@@ -59,7 +59,7 @@ npm install polaris-core
 
 ### Download Polaris
 
-[Download Polaris Core](https://github.com/heminsatya/polaris-core/releases)
+[Download Polaris Core](https://github.com/sigmascript/polaris-core/releases)
 
 
 ### Clone Polaris
@@ -67,7 +67,7 @@ npm install polaris-core
 You can also clone Polaris using [git](https://git-scm.com/):
 
 ```
-git clone https://github.com/heminsatya/polaris-core.git
+git clone https://github.com/sigmascript/polaris-core.git
 ```
 
 
@@ -155,4 +155,4 @@ I will do my best to make it something magnificent for all of us. I hope you lik
 
 If you saw any bugs or mistakes, please let me know. I'll do my best to solve them or at least reduce them asap.
 
-[Report Issues](https://github.com/heminsatya/polaris-core/issues)
+[Report Issues](https://github.com/sigmascript/polaris-core/issues)

@@ -1,6 +1,6 @@
 /**
- * Polaris Framework v1.0.5
- * MIT License github.com/heminsatya/polaris-core | © 2022 polarisui.com
+ * Polaris Framework v1.0.6
+ * MIT License github.com/sigmascript/polaris-core | © 2026 polarisui.com
 **/
 /**
  * Import the Core Class

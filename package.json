@@ -1,6 +1,6 @@
 {
   "name": "polaris-core",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Polaris is a front-end web framework for creating responsive UI components.",
   "author": "Hemin Satya",
   "license": "MIT",
@@ -23,13 +23,13 @@
     "Web",
     "Framework"
   ],
-  "homepage": "https://github.com/heminsatya/polaris-core#readme",
+  "homepage": "https://github.com/sigmascript/polaris-core#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heminsatya/polaris-core.git"
+    "url": "git+https://github.com/sigmascript/polaris-core.git"
   },
   "bugs": {
-    "url": "https://github.com/heminsatya/polaris-core/issues"
+    "url": "https://github.com/sigmascript/polaris-core/issues"
   },
   "devDependencies": {
     "@types/node": "18.19.0",
