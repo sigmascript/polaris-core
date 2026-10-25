@@ -1,158 +1,66 @@
-# Polaris Core (v1.0.6)
+# Polaris UI — Core
 
-Polaris is a front-end web framework for creating responsive UI components, with a focus on simplicity.
+Polaris Core is an open-source front-end framework for building responsive web interfaces with HTML, CSS and JavaScript. It provides reusable styles, components and optional JavaScript behavior, with a focus on simplicity and customization.
 
-Polaris framework is divided into two parts: **Core** & **Plugins**
+**Core** contains the shared foundation. **Plugins** add independently maintained features and are versioned separately.
 
-Polaris Core consists of generic components and features that almost every web application needs.
+## Get started
 
-> Notice! This repository belongs to **Polaris Core** only. For more details please check the [Main Repository](https://github.com/heminsatya/polaris).
+Install the package:
 
-
-## Documentation
-
-> [Polaris Core Docs](https://polarisui.com/page/docs/)
-
-
-## Audiences
-
-Polaris framework is built for front-end web app developers and designers.
-
-
-## Prerequisites
-
-* A basic knowledge about HTML, CSS, and JavaScript.
-* A basic knowledge about Sass*.
-* A basic knowledge about TypeScript*.
-* A basic knowledge about webpack*.
-
-> *These prerequisites are only required for developers.
-
-
-## Dependencies
-
-In order to use Polaris framework in production you don't need to use any other packages or libraries.
-
-However, to use it in a development environment, it depends on:
-
-* [Node.js](https://nodejs.org/en/) need to be installed.
-* [Sass](https://www.npmjs.com/package/sass) as an npm developement package.
-* [TypeScript](https://www.npmjs.com/package/typescript) as an npm developement package.
-* [webpack](https://www.npmjs.com/package/webpack) as an npm developement package.
-* [webpack CLI](https://www.npmjs.com/package/webpack-cli) as an npm developement package.
-* [TypeScript loader](https://www.npmjs.com/package/ts-loader) as an npm developement package.
-* [inspectpack](https://www.npmjs.com/package/inspectpack) as an npm developement package.
-
-
-## Get Started
-### Install via npm
-
-```
+```bash
 npm install polaris-core
 ```
 
+For a plain HTML project, copy the compiled files you need from `node_modules/polaris-core/dist/` into your application's public assets. Reference those *served* asset paths (not the package directory directly):
 
-### Use Polaris CDN
-
-> Coming soon...
-
-
-### Download Polaris
-
-[Download Polaris Core](https://github.com/sigmascript/polaris-core/releases)
-
-
-### Clone Polaris
-
-You can also clone Polaris using [git](https://git-scm.com/):
-
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polaris example</title>
+  <link rel="stylesheet" href="/assets/polaris/css/polaris.min.css">
+</head>
+<body>
+  <button class="btn">Hello Polaris</button>
+  <script src="/assets/polaris/js/polaris.min.js"></script>
+  <script>
+    const polaris = new Polaris();
+    polaris.init();
+  </script>
+</body>
+</html>
 ```
+
+The example assumes you copied `dist/css/polaris.min.css` and `dist/js/polaris.min.js` to the paths shown. Copy any referenced font or image assets as needed. JavaScript initialization is needed for interactive features, not for basic CSS styling.
+
+For right-to-left layouts, use `polaris-rtl.min.css` **instead of** the standard CSS build; see [RTL and themes](docs/rtl-and-themes.md).
+
+## Documentation
+
+Start with the [documentation index](docs/README.md), then explore [components](docs/components/README.md), [customization](docs/customization.md), and the [JavaScript guide](docs/javascript.md).
+
+## Develop from source
+
+```bash
 git clone https://github.com/sigmascript/polaris-core.git
-```
-
-
-### Customize Polaris
-
-#### Polaris Structure
-
-Before customization of Polaris framework, you need to know a bit about it's structure:
-
-```
-/dist
-    /css
-    /fonts
-    /images
-    /js
-/src
-    /scss
-    /ts
-```
-
-`dist` folder consists of all compiled files that you can use in production.
-
-`src` folder consists of all source files that need to be complied during the development.
-
-
-#### Customization
-
-In order to customize Polaris framework, first you need to download or clone it, then you need to follow a few easy steps:
-
-* Open up your favourite CLI program.
-* Change directory to the path where Polaris framework extracted:
-```
-cd path-to/polaris-core/
-```
-* Install packages by:
-```
-npm install
-```
-Now, you have everything set-up. You can customize it however you want.
-
-
-#### Rebuild Polaris
-
-Next step after customization of Polaris is to rebuild CSS, and JavaScript libraries.
-
-To rebuild the CSS libraries run:
-
-```
+cd polaris-core
+npm ci
 npm run css
-npm run css-dev
 npm run css-rtl
-npm run css-rtl-dev
-```
-
-To rebuild the JavaScript libraries run:
-
-```
-npm run js-mod
 npm run js
-npm run js-dev
+npx tsc --project tsconfig.json
 ```
 
+See [development and verification](docs/development.md) for build details. The root `index.js` is a package/version message; it is **not** the browser `Polaris` constructor. Use the browser distribution or the TypeScript sources for UI behavior.
 
-## About The Author
+## Releases and links
 
-I'm Hemin Satya, a freelance programmer.
+- [Release history](CHANGELOG.md) · [Detailed changelogs](changelog/)
+- [GitHub repository](https://github.com/sigmascript/polaris-core)
+- [Issue tracker](https://github.com/sigmascript/polaris-core/issues)
+- [Polaris website](https://polarisui.com/)
 
-Please let me know your precious comments, observations, and suggestions:
-([GitHub](https://github.com/heminsatya))
-([Twitter](https://twitter.com/heminsatya))
-
-Thank you all.
-
-
-## Collaboration
-
-Polaris framework is in a beta version and has a long way ahead. It needs contribution to be developed. 
-
-I warmly accept and appreciate any contribution requests from anyone who wants to work on this open-source project.
-
-I will do my best to make it something magnificent for all of us. I hope you like it.
-
-
-## Bug Report
-
-If you saw any bugs or mistakes, please let me know. I'll do my best to solve them or at least reduce them asap.
-
-[Report Issues](https://github.com/sigmascript/polaris-core/issues)
+Licensed under the [MIT License](LICENSE).
